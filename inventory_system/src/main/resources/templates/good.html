@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Good Information</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+  <h1 class="text-center">Good Information</h1>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Goods Name</th>
+      <th>Goods Description</th>
+      <th>Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td th:text="${good.id}"></td>
+      <td th:text="${good.goodsName}"></td>
+      <td th:text="${good.goodsDescription}"></td>
+      <td th:text="${good.quantity}"></td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <a href="#" class="btn btn-primary mr-2" th:href="@{/goods/{id}/in(id=${good.id})}">In Goods</a>
+    <a href="#" class="btn btn-primary mr-2" th:href="@{/goods/{id}/out(id=${good.id})}">Out Goods</a>
+    <br>
+    <br>
+    <form th:action="@{/goods/{id}/delete(id=${good.id})}" th:method="delete">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

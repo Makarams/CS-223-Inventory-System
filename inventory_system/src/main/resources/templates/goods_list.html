@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Goods List</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+  <h1 class="text-center">Goods List</h1>
+  <table class="table mt-5">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Goods Name</th>
+      <th>Goods Description</th>
+      <th>Quantity</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="goods : ${goods}">
+      <td th:text="${goods.id}"></td>
+      <td th:text="${goods.goodsName}"></td>
+      <td th:text="${goods.goodsDescription}"></td>
+      <td th:text="${goods.quantity}"></td>
+      <td>
+        <a th:href="@{/goods/{id}(id=${goods.id})}" class="btn btn-primary">View</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <a href="/goods/add" class="btn btn-primary">Add New Goods</a>
+</div>
+</body>
+</html>

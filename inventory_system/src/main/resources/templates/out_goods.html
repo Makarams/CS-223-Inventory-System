@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Out Stock Goods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+  <h1 class="text-center">Out Stock Goods</h1>
+  <form method="post" action="#">
+    <input type="hidden" name="id" th:value="${good.id}"/>
+    <div class="form-group">
+      <label for="goodsName">Goods Name:</label>
+      <input type="text" class="form-control" id="goodsName" placeholder="Enter goods name" name="goodsName" th:value="${good.goodsName}" readonly="readonly">
+    </div>
+    <div class="form-group">
+      <label for="goodsDescription">Goods Description:</label>
+      <textarea class="form-control" id="goodsDescription" placeholder="Enter goods description" name="goodsDescription" th:text="${good.goodsDescription}" readonly="readonly"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input type="text" class="form-control" id="quantity" placeholder="Enter quantity" name="quantity" th:value="${good.quantity}" readonly="readonly">
+    </div>
+    <div class="form-group">
+      <label for="outStock">Deduct from Stock:</label>
+      <input type="text" class="form-control" id="outStock" placeholder="Enter out stock quantity" name="outStock">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+</body>
+</html>
